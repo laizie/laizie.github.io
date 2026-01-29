@@ -43,6 +43,7 @@ gem "webrick"
 # gem "classifier-reborn"
 
 group :jekyll_plugins do
+  gem "jekyll-remote-theme"
   gem "jekyll-default-layout"
   gem "jekyll-feed"
   gem "jekyll-optional-front-matter"
