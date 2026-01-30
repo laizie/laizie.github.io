@@ -24,9 +24,8 @@ title:                 Laiden Ziegler
 
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
-description:           |
-  **NC State Student** 
-  Aspiring Software Engineer & Data Scientist
+description:           
+  "**NC State Student**\nAspiring Software Engineer & Data Scientist"
 
 # A shorter description for the sidebar.
 tagline:               
