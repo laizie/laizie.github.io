@@ -108,7 +108,7 @@ body.light-mode .link-github { background:#1e293b; color:#fff !important; }
     <p class="project-date">Nov 2025 – Present</p>
     <p class="project-desc">
       iOS strength training tracker for lifters who want a simple, fast way to log workouts.
-      No clutter, no subscriptions. Built solo, published and actively maintained on the App Store.
+      Built solo, published and actively maintained on the App Store.
     </p>
     <div class="project-tags">
       <span class="project-tag">Swift</span>
@@ -131,7 +131,7 @@ body.light-mode .link-github { background:#1e293b; color:#fff !important; }
     <p class="project-date">May 2026 – Present</p>
     <p class="project-desc">
       Cross-platform desktop app (Windows &amp; Mac) for tracking assignments, classes, and
-      lectures — with a focused study area to help you stay concentrated and get work done.
+      lectures with a focused study area to help you stay concentrated and get work done.
     </p>
     <div class="project-tags">
       <span class="project-tag">Electron</span>
