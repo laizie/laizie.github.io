@@ -5,207 +5,95 @@ description: Things I've built, shipped, and maintain.
 ---
 
 <style>
-/* ── Design tokens — light defaults ─────────────────────── */
-:root {
-  --pc-bg:           #f4f5f7;
-  --pc-border:       #d0d5dd;
-  --pc-shadow:       0 2px 6px rgba(0,0,0,.08);
-  --pc-shadow-hover: 0 8px 24px rgba(0,0,0,.14);
-  --pc-title:        #0d0d0d;
-  --pc-desc:         #1a1a1a;
-  --pc-date:         #444;
-  --pc-tag-bg:       #e8eaed;
-  --pc-tag-border:   #c8cdd4;
-  --pc-tag-color:    #1a1a1a;
-  --pc-divider:      #d0d5dd;
-  --pc-intro:        #222;
+/* ════════════════════════════════════════════════════════════
+   LIGHT MODE  (default)
+   ════════════════════════════════════════════════════════════ */
+.projects-intro { color: #222 !important; font-size:1rem; margin:-1rem 0 2.5rem; border-left:3px solid #22c55e; padding-left:.85rem; }
+
+.projects-grid  { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.75rem; }
+
+.project-card   { background:#f4f5f7; border:1px solid #d0d5dd; border-radius:10px; padding:1.5rem 1.5rem 1.25rem; display:flex; flex-direction:column; gap:.9rem; position:relative; overflow:hidden; box-shadow:0 2px 6px rgba(0,0,0,.08); transition:transform .18s ease,box-shadow .18s ease; }
+.project-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,.14); }
+.project-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; border-radius:10px 10px 0 0; }
+
+.card-lazee::before      { background:#22c55e; }
+.card-studeo::before     { background:#f59e0b; }
+.card-daycounter::before { background:#6366f1; }
+
+.project-card-header { display:flex; align-items:center; justify-content:space-between; gap:.5rem; }
+
+.project-title  { margin:0 !important; font-size:1.15rem; font-weight:700; line-height:1.2; color:#0d0d0d !important; }
+
+.project-badge  { font-size:.68rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:.22rem .6rem; border-radius:999px; white-space:nowrap; flex-shrink:0; }
+.badge-live { background:#dcfce7; color:#15803d; border:1px solid #bbf7d0; }
+.badge-wip  { background:#fef9c3; color:#a16207; border:1px solid #fde68a; }
+.badge-done { background:#ede9fe; color:#5b21b6; border:1px solid #ddd6fe; }
+
+.project-date   { font-size:.78rem; color:#444 !important; margin:-.4rem 0 0; display:flex; align-items:center; gap:.35rem; }
+.project-date::before { content:''; display:inline-block; width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+.card-lazee      .project-date::before { background:#22c55e; }
+.card-studeo     .project-date::before { background:#f59e0b; }
+.card-daycounter .project-date::before { background:#6366f1; }
+
+.project-desc   { font-size:.9rem; line-height:1.6; color:#1a1a1a !important; margin:0; flex:1; }
+
+.project-tags   { display:flex; flex-wrap:wrap; gap:.35rem; }
+.project-tag    { font-size:.7rem; padding:.18rem .5rem; background:#e8eaed; border:1px solid #c8cdd4; border-radius:4px; font-family:ui-monospace,monospace; color:#1a1a1a !important; }
+
+.project-links  { display:flex; gap:.6rem; flex-wrap:wrap; padding-top:.75rem; border-top:1px solid #d0d5dd; margin-top:.25rem; }
+.project-link   { font-size:.8rem; font-weight:600; padding:.3rem .85rem; border-radius:6px; text-decoration:none !important; transition:opacity .15s,transform .1s; display:inline-flex; align-items:center; gap:.3rem; }
+.project-link:hover { opacity:.8; transform:translateY(-1px); }
+.link-appstore  { background:#22c55e; color:#fff !important; }
+.link-github    { background:#1e293b; color:#fff !important; }
+
+/* ════════════════════════════════════════════════════════════
+   DARK MODE  — OS preference (no explicit user choice yet)
+              + body.dark-mode (user chose dark, or JS synced)
+   ════════════════════════════════════════════════════════════ */
+@media (prefers-color-scheme: dark) {
+  .project-card    { background:rgba(255,255,255,.05); border-color:rgba(255,255,255,.1); box-shadow:0 1px 6px rgba(0,0,0,.4); }
+  .project-card:hover { box-shadow:0 8px 28px rgba(0,0,0,.55); }
+  .project-title   { color:#e2e8f0 !important; }
+  .project-desc    { color:#b0bec5 !important; }
+  .project-date    { color:rgba(255,255,255,.45) !important; }
+  .project-tag     { background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.14); color:#94a3b8 !important; }
+  .project-links   { border-top-color:rgba(255,255,255,.1); }
+  .projects-intro  { color:rgba(255,255,255,.5) !important; }
+  .badge-live { background:rgba(34,197,94,.15);  color:#86efac; border-color:rgba(34,197,94,.3);  }
+  .badge-wip  { background:rgba(245,158,11,.15); color:#fcd34d; border-color:rgba(245,158,11,.3); }
+  .badge-done { background:rgba(99,102,241,.15); color:#a5b4fc; border-color:rgba(99,102,241,.3); }
+  .link-github { background:rgba(255,255,255,.12); color:#e2e8f0 !important; }
 }
 
-/* ── Dark mode overrides (body.dark-mode only — no media query) ── */
-body.dark-mode {
-  --pc-bg:           rgba(255,255,255,.05);
-  --pc-border:       rgba(255,255,255,.1);
-  --pc-shadow:       0 1px 6px rgba(0,0,0,.4);
-  --pc-shadow-hover: 0 8px 28px rgba(0,0,0,.55);
-  --pc-title:        #e2e8f0;
-  --pc-desc:         #94a3b8;
-  --pc-date:         rgba(255,255,255,.4);
-  --pc-tag-bg:       rgba(255,255,255,.06);
-  --pc-tag-border:   rgba(255,255,255,.14);
-  --pc-tag-color:    #94a3b8;
-  --pc-divider:      rgba(255,255,255,.1);
-  --pc-intro:        rgba(255,255,255,.45);
-}
+body.dark-mode .project-card    { background:rgba(255,255,255,.05); border-color:rgba(255,255,255,.1); box-shadow:0 1px 6px rgba(0,0,0,.4); }
+body.dark-mode .project-card:hover { box-shadow:0 8px 28px rgba(0,0,0,.55); }
+body.dark-mode .project-title   { color:#e2e8f0 !important; }
+body.dark-mode .project-desc    { color:#b0bec5 !important; }
+body.dark-mode .project-date    { color:rgba(255,255,255,.45) !important; }
+body.dark-mode .project-tag     { background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.14); color:#94a3b8 !important; }
+body.dark-mode .project-links   { border-top-color:rgba(255,255,255,.1); }
+body.dark-mode .projects-intro  { color:rgba(255,255,255,.5) !important; }
+body.dark-mode .badge-live { background:rgba(34,197,94,.15);  color:#86efac; border-color:rgba(34,197,94,.3);  }
+body.dark-mode .badge-wip  { background:rgba(245,158,11,.15); color:#fcd34d; border-color:rgba(245,158,11,.3); }
+body.dark-mode .badge-done { background:rgba(99,102,241,.15); color:#a5b4fc; border-color:rgba(99,102,241,.3); }
+body.dark-mode .link-github { background:rgba(255,255,255,.12); color:#e2e8f0 !important; }
 
-/* ── Page header ─────────────────────────────────────────── */
-.projects-intro {
-  color: #222 !important;
-  font-size: 1rem;
-  margin: -1rem 0 2.5rem;
-  border-left: 3px solid #22c55e;
-  padding-left: 0.85rem;
-}
-
-/* ── Grid ─────────────────────────────────────────────────── */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.75rem;
-}
-
-/* ── Card ─────────────────────────────────────────────────── */
-.project-card {
-  background: var(--pc-bg);
-  border: 1px solid var(--pc-border);
-  border-radius: 10px;
-  padding: 1.5rem 1.5rem 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.9rem;
-  position: relative;
-  overflow: hidden;
-  box-shadow: var(--pc-shadow);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-}
-
-.project-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 4px;
-  border-radius: 10px 10px 0 0;
-}
-
-.project-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--pc-shadow-hover);
-}
-
-/* ── Per-card accent colors ──────────────────────────────── */
-.card-lazee::before      { background: #22c55e; }
-.card-studeo::before     { background: #f59e0b; }
-.card-daycounter::before { background: #6366f1; }
-
-/* ── Card header row ─────────────────────────────────────── */
-.project-card-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-}
-
-.project-card h3,
-.project-title {
-  margin: 0;
-  font-size: 1.15rem;
-  font-weight: 700;
-  line-height: 1.2;
-  color: #0d0d0d !important;
-}
-
-/* ── Status badges ───────────────────────────────────────── */
-.project-badge {
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 0.22rem 0.6rem;
-  border-radius: 999px;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-.badge-live { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
-.badge-wip  { background: #fef9c3; color: #a16207; border: 1px solid #fde68a; }
-.badge-done { background: #ede9fe; color: #5b21b6; border: 1px solid #ddd6fe; }
-
-
-body.dark-mode .badge-live { background: rgba(34,197,94,.15);  color: #86efac; border-color: rgba(34,197,94,.3);  }
-body.dark-mode .badge-wip  { background: rgba(245,158,11,.15); color: #fcd34d; border-color: rgba(245,158,11,.3); }
-body.dark-mode .badge-done { background: rgba(99,102,241,.15); color: #a5b4fc; border-color: rgba(99,102,241,.3); }
-body.dark-mode .project-card h3,
-body.dark-mode .project-title    { color: #e2e8f0 !important; }
-body.dark-mode .project-desc     { color: #b0bec5 !important; }
-body.dark-mode .project-date     { color: rgba(255,255,255,.45) !important; }
-body.dark-mode .project-tag      { color: #94a3b8 !important; }
-body.dark-mode .projects-intro   { color: rgba(255,255,255,.5) !important; }
-
-/* ── Date ────────────────────────────────────────────────── */
-.project-date {
-  font-size: 0.78rem;
-  color: #444 !important;
-  margin: -0.4rem 0 0;
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-}
-
-.project-date::before {
-  content: '';
-  display: inline-block;
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.card-lazee      .project-date::before { background: #22c55e; }
-.card-studeo     .project-date::before { background: #f59e0b; }
-.card-daycounter .project-date::before { background: #6366f1; }
-
-/* ── Description ─────────────────────────────────────────── */
-.project-desc {
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: #1a1a1a !important;
-  margin: 0;
-  flex: 1;
-}
-
-/* ── Tech tags ───────────────────────────────────────────── */
-.project-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-}
-
-.project-tag {
-  font-size: 0.7rem;
-  padding: 0.18rem 0.5rem;
-  background: var(--pc-tag-bg);
-  border: 1px solid var(--pc-tag-border);
-  border-radius: 4px;
-  font-family: ui-monospace, monospace;
-  color: #1a1a1a !important;
-}
-
-/* ── Links ───────────────────────────────────────────────── */
-.project-links {
-  display: flex;
-  gap: 0.6rem;
-  flex-wrap: wrap;
-  padding-top: 0.75rem;
-  border-top: 1px solid var(--pc-divider);
-  margin-top: 0.25rem;
-}
-
-.project-link {
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 0.3rem 0.85rem;
-  border-radius: 6px;
-  text-decoration: none !important;
-  transition: opacity 0.15s, transform 0.1s;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-}
-
-.project-link:hover { opacity: 0.8; transform: translateY(-1px); }
-
-.link-appstore { background: #22c55e; color: #fff !important; }
-.link-github   { background: #1e293b; color: #fff !important; }
-
-body.dark-mode .link-github { background: rgba(255,255,255,.12); color: #e2e8f0 !important; }
+/* ════════════════════════════════════════════════════════════
+   LIGHT OVERRIDE — user explicitly chose light via toggle
+   while OS is still in dark mode
+   ════════════════════════════════════════════════════════════ */
+body.light-mode .project-card   { background:#f4f5f7; border-color:#d0d5dd; box-shadow:0 2px 6px rgba(0,0,0,.08); }
+body.light-mode .project-card:hover { box-shadow:0 8px 24px rgba(0,0,0,.14); }
+body.light-mode .project-title  { color:#0d0d0d !important; }
+body.light-mode .project-desc   { color:#1a1a1a !important; }
+body.light-mode .project-date   { color:#444 !important; }
+body.light-mode .project-tag    { background:#e8eaed; border-color:#c8cdd4; color:#1a1a1a !important; }
+body.light-mode .project-links  { border-top-color:#d0d5dd; }
+body.light-mode .projects-intro { color:#222 !important; }
+body.light-mode .badge-live { background:#dcfce7; color:#15803d; border-color:#bbf7d0; }
+body.light-mode .badge-wip  { background:#fef9c3; color:#a16207; border-color:#fde68a; }
+body.light-mode .badge-done { background:#ede9fe; color:#5b21b6; border-color:#ddd6fe; }
+body.light-mode .link-github { background:#1e293b; color:#fff !important; }
 </style>
 
 <p class="projects-intro">A collection of personal projects I've built and maintain.</p>
@@ -214,7 +102,7 @@ body.dark-mode .link-github { background: rgba(255,255,255,.12); color: #e2e8f0 
 
   <div class="project-card card-lazee">
     <div class="project-card-header">
-      <h3 class="project-title" style="color:#0d0d0d;margin:0;">Lazee</h3>
+      <h3 class="project-title">Lazee</h3>
       <span class="project-badge badge-live">Live</span>
     </div>
     <p class="project-date">Nov 2025 – Present</p>
@@ -237,7 +125,7 @@ body.dark-mode .link-github { background: rgba(255,255,255,.12); color: #e2e8f0 
 
   <div class="project-card card-studeo">
     <div class="project-card-header">
-      <h3 class="project-title" style="color:#0d0d0d;margin:0;">Studeo</h3>
+      <h3 class="project-title">Studeo</h3>
       <span class="project-badge badge-wip">WIP</span>
     </div>
     <p class="project-date">May 2026 – Present</p>
@@ -260,7 +148,7 @@ body.dark-mode .link-github { background: rgba(255,255,255,.12); color: #e2e8f0 
 
   <div class="project-card card-daycounter">
     <div class="project-card-header">
-      <h3 class="project-title" style="color:#0d0d0d;margin:0;">Day Counter Picture Frame</h3>
+      <h3 class="project-title">Day Counter Picture Frame</h3>
       <span class="project-badge badge-done">Completed</span>
     </div>
     <p class="project-date">Nov 2025 – Feb 2026</p>

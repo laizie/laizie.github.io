@@ -5,114 +5,52 @@ description: Get in touch with Laiden Ziegler.
 ---
 
 <style>
-:root {
-  --ct-intro:       #444;
-  --ct-label:       #888;
-  --ct-value:       #111;
-  --ct-sublabel:    #555;
-  --ct-divider:     #e8eaed;
-  --ct-row-hover:   #f7f8fa;
-  --ct-icon-border: #e0e3e8;
+/* ════ LIGHT (default) ══════════════════════════════════════ */
+.contact-intro  { color:#444 !important; font-size:1rem; line-height:1.65; margin:-.5rem 0 2.5rem; border-left:3px solid #22c55e; padding-left:.85rem; }
+.contact-list   { list-style:none; padding:0; margin:0; border-top:1px solid #e8eaed; }
+.contact-row    { display:flex; align-items:center; gap:1.1rem; padding:1rem .5rem; border-bottom:1px solid #e8eaed; text-decoration:none !important; color:inherit; transition:background .15s ease; border-radius:6px; }
+a.contact-row:hover { background:#f7f8fa; }
+.contact-icon-wrap  { width:40px; height:40px; border-radius:9px; border:1px solid #e0e3e8; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.contact-icon-wrap svg { width:18px; height:18px; display:block; }
+.contact-text   { display:flex; flex-direction:column; gap:.15rem; min-width:0; }
+.contact-label  { font-size:.7rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#888 !important; }
+.contact-value  { font-size:.95rem; font-weight:600; color:#111 !important; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.contact-arrow  { margin-left:auto; color:#aaa !important; flex-shrink:0; font-size:1rem; padding-right:.25rem; }
+
+/* ════ DARK — OS preference ════════════════════════════════ */
+@media (prefers-color-scheme: dark) {
+  .contact-list  { border-top-color:rgba(255,255,255,.08); }
+  .contact-row   { border-bottom-color:rgba(255,255,255,.08); }
+  a.contact-row:hover { background:rgba(255,255,255,.04); }
+  .contact-icon-wrap  { border-color:rgba(255,255,255,.1); }
+  .contact-intro { color:rgba(255,255,255,.5)  !important; }
+  .contact-label { color:rgba(255,255,255,.35) !important; }
+  .contact-value { color:#e2e8f0               !important; }
+  .contact-arrow { color:rgba(255,255,255,.3)  !important; }
 }
 
-body.dark-mode {
-  --ct-intro:       rgba(255,255,255,.5);
-  --ct-label:       rgba(255,255,255,.35);
-  --ct-value:       #e2e8f0;
-  --ct-sublabel:    rgba(255,255,255,.55);
-  --ct-divider:     rgba(255,255,255,.08);
-  --ct-row-hover:   rgba(255,255,255,.04);
-  --ct-icon-border: rgba(255,255,255,.1);
-}
+/* ════ DARK — explicit toggle ══════════════════════════════ */
+body.dark-mode .contact-list  { border-top-color:rgba(255,255,255,.08); }
+body.dark-mode .contact-row   { border-bottom-color:rgba(255,255,255,.08); }
+body.dark-mode a.contact-row:hover { background:rgba(255,255,255,.04); }
+body.dark-mode .contact-icon-wrap  { border-color:rgba(255,255,255,.1); }
+body.dark-mode .contact-intro { color:rgba(255,255,255,.5)  !important; }
+body.dark-mode .contact-label { color:rgba(255,255,255,.35) !important; }
+body.dark-mode .contact-value { color:#e2e8f0               !important; }
+body.dark-mode .contact-arrow { color:rgba(255,255,255,.3)  !important; }
 
-.contact-intro {
-  color: #444 !important;
-  font-size: 1rem;
-  line-height: 1.65;
-  margin: -0.5rem 0 2.5rem;
-  border-left: 3px solid #22c55e;
-  padding-left: 0.85rem;
-}
-
-.contact-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  border-top: 1px solid var(--ct-divider);
-}
-
-.contact-row {
-  display: flex;
-  align-items: center;
-  gap: 1.1rem;
-  padding: 1rem 0.5rem;
-  border-bottom: 1px solid var(--ct-divider);
-  text-decoration: none !important;
-  color: inherit !important;
-  transition: background 0.15s ease;
-  border-radius: 6px;
-}
-
-a.contact-row:hover {
-  background: var(--ct-row-hover);
-}
-
-.contact-icon-wrap {
-  width: 40px;
-  height: 40px;
-  border-radius: 9px;
-  border: 1px solid var(--ct-icon-border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.contact-icon-wrap svg {
-  width: 18px;
-  height: 18px;
-  display: block;
-}
-
-.contact-text {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-  min-width: 0;
-}
-
-.contact-label {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #888 !important;
-}
-
-.contact-value {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #111 !important;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.contact-arrow {
-  margin-left: auto;
-  color: #aaa !important;
-  flex-shrink: 0;
-  font-size: 1rem;
-  padding-right: 0.25rem;
-}
-
-body.dark-mode .contact-intro { color: rgba(255,255,255,.5)  !important; }
-body.dark-mode .contact-label { color: rgba(255,255,255,.35) !important; }
-body.dark-mode .contact-value { color: #e2e8f0               !important; }
-body.dark-mode .contact-arrow { color: rgba(255,255,255,.3)  !important; }
+/* ════ LIGHT override — OS dark but user chose light ═══════ */
+body.light-mode .contact-list  { border-top-color:#e8eaed; }
+body.light-mode .contact-row   { border-bottom-color:#e8eaed; }
+body.light-mode a.contact-row:hover { background:#f7f8fa; }
+body.light-mode .contact-icon-wrap  { border-color:#e0e3e8; }
+body.light-mode .contact-intro { color:#444   !important; }
+body.light-mode .contact-label { color:#888   !important; }
+body.light-mode .contact-value { color:#111   !important; }
+body.light-mode .contact-arrow { color:#aaa   !important; }
 </style>
 
-<p class="contact-intro" style="color:#444;">
+<p class="contact-intro">
   Feel free to reach out — whether it's about a project, an opportunity, or just to connect.
 </p>
 
@@ -127,8 +65,8 @@ body.dark-mode .contact-arrow { color: rgba(255,255,255,.3)  !important; }
         </svg>
       </div>
       <div class="contact-text">
-        <span class="contact-label" style="color:#888;">Email</span>
-        <span class="contact-value" style="color:#111;">laiziemail@gmail.com</span>
+        <span class="contact-label">Email</span>
+        <span class="contact-value">laiziemail@gmail.com</span>
       </div>
       <span class="contact-arrow">›</span>
     </a>
@@ -142,8 +80,8 @@ body.dark-mode .contact-arrow { color: rgba(255,255,255,.3)  !important; }
         </svg>
       </div>
       <div class="contact-text">
-        <span class="contact-label" style="color:#888;">LinkedIn</span>
-        <span class="contact-value" style="color:#111;">laiden-ziegler</span>
+        <span class="contact-label">LinkedIn</span>
+        <span class="contact-value">laiden-ziegler</span>
       </div>
       <span class="contact-arrow">›</span>
     </a>
@@ -157,8 +95,8 @@ body.dark-mode .contact-arrow { color: rgba(255,255,255,.3)  !important; }
         </svg>
       </div>
       <div class="contact-text">
-        <span class="contact-label" style="color:#888;">GitHub</span>
-        <span class="contact-value" style="color:#111;">laizie</span>
+        <span class="contact-label">GitHub</span>
+        <span class="contact-value">laizie</span>
       </div>
       <span class="contact-arrow">›</span>
     </a>
@@ -172,8 +110,8 @@ body.dark-mode .contact-arrow { color: rgba(255,255,255,.3)  !important; }
         </svg>
       </div>
       <div class="contact-text">
-        <span class="contact-label" style="color:#888;">Phone</span>
-        <span class="contact-value" style="color:#111;">(704) 534-2184</span>
+        <span class="contact-label">Phone</span>
+        <span class="contact-value">(704) 534-2184</span>
       </div>
     </div>
   </li>
@@ -186,8 +124,8 @@ body.dark-mode .contact-arrow { color: rgba(255,255,255,.3)  !important; }
         </svg>
       </div>
       <div class="contact-text">
-        <span class="contact-label" style="color:#888;">App Store</span>
-        <span class="contact-value" style="color:#111;">Lazee — Workout Tracker</span>
+        <span class="contact-label">App Store</span>
+        <span class="contact-value">Lazee — Workout Tracker</span>
       </div>
       <span class="contact-arrow">›</span>
     </a>
