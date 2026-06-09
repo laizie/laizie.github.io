@@ -57,6 +57,8 @@ menu:
     url:               /projects/
   - title:             Resume
     url:               /resume/
+  - title:             Contact
+    url:               /
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
@@ -315,6 +317,8 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - functions
+  - example
+  - docs
 include:
   - _routes.json
   - .well-known

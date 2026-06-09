@@ -1,3 +1,20 @@
+// Resume embed
+.resume-embed {
+  width: 100%;
+  height: 85vh;
+  min-height: 600px;
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: 4px;
+}
+
+// About page skills grid
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
 .dl-table {
   a {
     @supports ((text-decoration-thickness: initial) and (text-underline-offset: initial)) {
