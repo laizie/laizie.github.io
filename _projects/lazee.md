@@ -16,7 +16,17 @@ links:
 
 **Nov 2025 – Present**
 
-![Lazee in action](/assets/img/projects/lazee.gif){:.border}
+<div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin:1.5rem 0;">
+  <img src="/assets/img/projects/lazee-home.png" alt="Lazee home screen"
+       style="width:31%;min-width:160px;max-width:230px;height:auto;border-radius:18px;
+              border:1px solid #d0d5dd;box-shadow:0 8px 24px rgba(0,0,0,.16);" />
+  <img src="/assets/img/projects/lazee-active.png" alt="Lazee active workout"
+       style="width:31%;min-width:160px;max-width:230px;height:auto;border-radius:18px;
+              border:1px solid #d0d5dd;box-shadow:0 8px 24px rgba(0,0,0,.16);" />
+  <img src="/assets/img/projects/lazee-progress.png" alt="Lazee progress tracking"
+       style="width:31%;min-width:160px;max-width:230px;height:auto;border-radius:18px;
+              border:1px solid #d0d5dd;box-shadow:0 8px 24px rgba(0,0,0,.16);" />
+</div>
 
 This idea came to me when working out, of course. But it was because I used to keep all of my workouts in my notes to log my sets and reps. Eventually I got tired of deleting and replacing reps and sets and the dates were all of the place, and worst of all, I would only track my current reps and sets and could not look back on my progress. Now I had this idea for a while, but I did not really have the time or experience, so I told myself once I was on summer break from NC State, I woukd get to work on developing the app. 
 
