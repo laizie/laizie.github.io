@@ -16,6 +16,8 @@ links:
 
 **Jan 2026 &nbsp;·&nbsp; Completed**
 
+![Conway's Game of Life running](/assets/img/projects/game-of-life.gif){:.border}
+
 This was one of my first personal projects, something that I did not think was too difficult but still allow me to learn new things in the java area. However, I was mistaken, this was actually quite a challenge as I had to fully learn Java Swing to even get started it felt like. But eventually, I figured it out and made it happen.
 
 A Java implementation of [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life), the classic cellular automaton where simple birth-and-death rules produce surprisingly complex patterns. I built it to get hands on with Java GUI and windows (Swing) and to practice structuring a program with object-oriented design.

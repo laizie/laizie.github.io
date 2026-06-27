@@ -16,6 +16,8 @@ links:
 
 **Nov 2025 – Present**
 
+![Lazee in action](/assets/img/projects/lazee.gif){:.border}
+
 This idea came to me when working out, of course. But it was because I used to keep all of my workouts in my notes to log my sets and reps. Eventually I got tired of deleting and replacing reps and sets and the dates were all of the place, and worst of all, I would only track my current reps and sets and could not look back on my progress. Now I had this idea for a while, but I did not really have the time or experience, so I told myself once I was on summer break from NC State, I woukd get to work on developing the app. 
 
 However, I could not just wait, so I started the design process while in school still with whatever time I had. This allowed for a quick initial prototype of the app while still allowing it to look nice. Eventually I started to really get somewhere I liked with the app and decided my next goal was to have this app published for me and people I know to use as well.

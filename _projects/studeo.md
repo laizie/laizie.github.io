@@ -18,6 +18,8 @@ links:
 
 **May 2026 – Present &nbsp;·&nbsp; Released**
 
+![Studeo in action](/assets/img/projects/studeo.gif){:.border}
+
 This idea originally came to me because I built an assignment tracker in Notion but I still felt like I did not have full control over how I wanted it formatted and it was honestly pretty time consuming adding assignments and all of that. So I started this app as a way to learn more about web apps, as that would be best to have it both on Mac and Windows since I use both operating systems. It was initially just an assignment tracker but turned into a whole "studio" of useful features that would help me in college.
 
 So then came Studeo, a web app developed to take care of all of your college needs, from assignment tracker, course schedule, organized notes, and a cozy study area. I maintain this app and plan to continue updating without adding too much clutter.

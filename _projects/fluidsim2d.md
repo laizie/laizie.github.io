@@ -17,6 +17,8 @@ links:
 
 **Jun 2026 – Present &nbsp;·&nbsp; WIP**
 
+![FluidSim2d sloshing around the round display](/assets/img/projects/fluidsim2d.gif){:.border}
+
 FluidSim2d is a real-time **FLIP fluid simulation** I'm building to run on a 2-inch round LED pocket watch. The water sloshes around the circular display based on how the watch is tilted. I'm prototyping the physics in the browser first, then porting it to C++ to run on an ESP32-C3 Super Mini driving a circular addressable-LED matrix.
 
 The idea comes from [mitxela's fluid pendant](https://mitxela.com/projects/fluid-pendant).
