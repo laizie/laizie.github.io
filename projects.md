@@ -19,10 +19,16 @@ description: Things I've built, shipped, and maintain.
 .card-lazee::before      { background:#22c55e; }
 .card-studeo::before     { background:#f59e0b; }
 .card-daycounter::before { background:#6366f1; }
+.card-fluidsim::before   { background:#06b6d4; }
+.card-gameoflife::before { background:#f43f5e; }
 
 .project-card-header { display:flex; align-items:center; justify-content:space-between; gap:.5rem; }
 
 .project-title  { margin:0 !important; font-size:1.15rem; font-weight:700; line-height:1.2; color:#0d0d0d !important; }
+.project-title-link { color:inherit !important; text-decoration:none !important; }
+/* Stretched link: makes the whole card clickable while keeping the action buttons usable */
+.project-title-link::after { content:''; position:absolute; inset:0; z-index:1; }
+.project-card { cursor:pointer; }
 
 .project-badge  { font-size:.68rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:.22rem .6rem; border-radius:999px; white-space:nowrap; flex-shrink:0; }
 .badge-live { background:#dcfce7; color:#15803d; border:1px solid #bbf7d0; }
@@ -34,6 +40,8 @@ description: Things I've built, shipped, and maintain.
 .card-lazee      .project-date::before { background:#22c55e; }
 .card-studeo     .project-date::before { background:#f59e0b; }
 .card-daycounter .project-date::before { background:#6366f1; }
+.card-fluidsim   .project-date::before { background:#06b6d4; }
+.card-gameoflife .project-date::before { background:#f43f5e; }
 
 .project-desc   { font-size:.9rem; line-height:1.6; color:#1a1a1a !important; margin:0; flex:1; }
 
@@ -41,9 +49,10 @@ description: Things I've built, shipped, and maintain.
 .project-tag    { font-size:.7rem; padding:.18rem .5rem; background:#e8eaed; border:1px solid #c8cdd4; border-radius:4px; font-family:ui-monospace,monospace; color:#1a1a1a !important; }
 
 .project-links  { display:flex; gap:.6rem; flex-wrap:wrap; padding-top:.75rem; border-top:1px solid #d0d5dd; margin-top:.25rem; }
-.project-link   { font-size:.8rem; font-weight:600; padding:.3rem .85rem; border-radius:6px; text-decoration:none !important; transition:opacity .15s,transform .1s; display:inline-flex; align-items:center; gap:.3rem; }
+.project-link   { font-size:.8rem; font-weight:600; padding:.3rem .85rem; border-radius:6px; text-decoration:none !important; transition:opacity .15s,transform .1s; display:inline-flex; align-items:center; gap:.3rem; position:relative; z-index:2; }
 .project-link:hover { opacity:.8; transform:translateY(-1px); }
 .link-appstore  { background:#22c55e; color:#fff !important; }
+.link-download  { background:#f59e0b; color:#fff !important; }
 .link-github    { background:#1e293b; color:#fff !important; }
 
 /* ════════════════════════════════════════════════════════════
@@ -102,7 +111,7 @@ body.light-mode .link-github { background:#1e293b; color:#fff !important; }
 
   <div class="project-card card-lazee">
     <div class="project-card-header">
-      <h3 class="project-title">Lazee</h3>
+      <h3 class="project-title"><a class="project-title-link" href="{{ '/projects/lazee/' | relative_url }}">Lazee</a></h3>
       <span class="project-badge badge-live">Live</span>
     </div>
     <p class="project-date">Nov 2025 – Present</p>
@@ -125,13 +134,14 @@ body.light-mode .link-github { background:#1e293b; color:#fff !important; }
 
   <div class="project-card card-studeo">
     <div class="project-card-header">
-      <h3 class="project-title">Studeo</h3>
-      <span class="project-badge badge-wip">WIP</span>
+      <h3 class="project-title"><a class="project-title-link" href="{{ '/projects/studeo/' | relative_url }}">Studeo</a></h3>
+      <span class="project-badge badge-live">Live</span>
     </div>
     <p class="project-date">May 2026 – Present</p>
     <p class="project-desc">
       Cross-platform desktop app (Windows &amp; Mac) for tracking assignments, classes, and
       lectures with a focused study area to help you stay concentrated and get work done.
+      Released and available to download.
     </p>
     <div class="project-tags">
       <span class="project-tag">Electron</span>
@@ -140,7 +150,35 @@ body.light-mode .link-github { background:#1e293b; color:#fff !important; }
       <span class="project-tag">Node.js</span>
     </div>
     <div class="project-links">
+      <a class="project-link link-download" href="https://github.com/laizie/classtrack/releases" target="_blank">
+        ↓ Download
+      </a>
       <a class="project-link link-github" href="https://github.com/laizie/classtrack" target="_blank">
+        ↗ GitHub
+      </a>
+    </div>
+  </div>
+
+  <div class="project-card card-fluidsim">
+    <div class="project-card-header">
+      <h3 class="project-title"><a class="project-title-link" href="{{ '/projects/fluidsim2d/' | relative_url }}">FluidSim2d</a></h3>
+      <span class="project-badge badge-wip">WIP</span>
+    </div>
+    <p class="project-date">Jun 2026 – Present</p>
+    <p class="project-desc">
+      Real-time FLIP fluid simulation for a 2-inch round LED pocket watch. Prototyped in the
+      browser with JavaScript, with the physics being ported to C++ to run on an ESP32 driving
+      a circular addressable-LED matrix.
+    </p>
+    <div class="project-tags">
+      <span class="project-tag">JavaScript</span>
+      <span class="project-tag">HTML5 Canvas</span>
+      <span class="project-tag">C++</span>
+      <span class="project-tag">ESP32</span>
+      <span class="project-tag">KiCad</span>
+    </div>
+    <div class="project-links">
+      <a class="project-link link-github" href="https://github.com/laizie/FluidSim2d" target="_blank">
         ↗ GitHub
       </a>
     </div>
@@ -148,7 +186,7 @@ body.light-mode .link-github { background:#1e293b; color:#fff !important; }
 
   <div class="project-card card-daycounter">
     <div class="project-card-header">
-      <h3 class="project-title">Day Counter Picture Frame</h3>
+      <h3 class="project-title"><a class="project-title-link" href="{{ '/projects/day-counter/' | relative_url }}">Day Counter Picture Frame</a></h3>
       <span class="project-badge badge-done">Completed</span>
     </div>
     <p class="project-date">Nov 2025 – Feb 2026</p>
@@ -165,6 +203,30 @@ body.light-mode .link-github { background:#1e293b; color:#fff !important; }
     </div>
     <div class="project-links">
       <a class="project-link link-github" href="https://github.com/laizie/Digital-Day-Counter-Picture-Frame" target="_blank">
+        ↗ GitHub
+      </a>
+    </div>
+  </div>
+
+  <div class="project-card card-gameoflife">
+    <div class="project-card-header">
+      <h3 class="project-title"><a class="project-title-link" href="{{ '/projects/game-of-life/' | relative_url }}">Conway's Game of Life</a></h3>
+      <span class="project-badge badge-done">Completed</span>
+    </div>
+    <p class="project-date">Jan 2026</p>
+    <p class="project-desc">
+      Conway's Game of Life implemented in Java with a Swing GUI. Built as a learning project
+      to get hands-on with Java windowing and object-oriented design — split cleanly into
+      grid, game-loop, and controller classes.
+    </p>
+    <div class="project-tags">
+      <span class="project-tag">Java</span>
+      <span class="project-tag">Swing</span>
+      <span class="project-tag">AWT</span>
+      <span class="project-tag">OOP</span>
+    </div>
+    <div class="project-links">
+      <a class="project-link link-github" href="https://github.com/laizie/laizie-GameOfLife" target="_blank">
         ↗ GitHub
       </a>
     </div>

@@ -34,4 +34,4 @@ A hardware + software project combining embedded programming, real-time clocking
 
 ## What I learned
 
-This was my first embedded hardware project from end to end — designing the physical housing, wiring components, and writing firmware that had to be reliable 24/7. Getting the persistence logic right (so it didn't reset on power loss) required carefully understanding the RTC and EEPROM together.
+This was my first embedded hardware project from end to end, designing the physical housing, wiring components, and writing firmware that had to be reliable 24/7. Getting the persistence logic right (so it didn't reset on power loss) required carefully understanding the RTC and EEPROM together.
