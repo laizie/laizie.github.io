@@ -19,7 +19,7 @@ links:
 
 <p style="text-align:center;">
   <img src="/assets/img/projects/packseats-planner.png" alt="PackSeats planner: a weekly schedule grid with a conflict-aware course search showing which sections fit, live seat counts, and watched sections"
-       style="width:900px;max-width:100%;height:auto;border-radius:10px;
+       style="width:600px;max-width:100%;height:auto;border-radius:10px;
               border:1px solid #d0d5dd;box-shadow:0 8px 24px rgba(0,0,0,.14);" />
 </p>
 
