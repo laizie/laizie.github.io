@@ -17,9 +17,11 @@ links:
 
 **Jul 2026 – Present &nbsp;·&nbsp; Running**
 
-At NC State, the class you need is full, so you camp on the course catalog hitting refresh, hoping to catch the one moment someone drops it before the next person does. It's tedious, you lose either way, and it happens every single registration cycle.
+The idea came out of pure frustration. As a junior I was stuck trying to get into a 100-level health and fitness class that was completely full, camped on the course catalog hitting refresh and getting nowhere. So I threw together a rough prototype to watch the section for me — and within a couple of hours it caught an open seat and I was in.
 
-PackSeats watches for me. It polls the **public** NC State class search on a polite interval, notices the instant a watched section flips from *full* to *open*, and pushes a notification straight to my phone with a tap-through link to go grab the seat. No login, no MyPack, no SSO — public catalog only. It runs 24/7 on a free always-on VM, so it keeps watching with my laptop closed.
+That got me curious, and once I started paying attention I realized just how *often* students drop classes. Seats open up constantly throughout registration; you just have to be looking at the exact second one does. What makes it worse is that some classes have a waitlist, so you can add yourself and wait your turn — but plenty of others, the health and fitness ones included, have no waitlist at all. Those are exactly where this helps: the only way in is to catch the moment a seat frees up before someone else refreshes into it first.
+
+So I built the prototype out into PackSeats. It polls the **public** NC State class search on a polite interval, notices the instant a watched section flips from *full* to *open*, and pushes a notification straight to my phone with a tap-through link to go grab the seat. No login, no MyPack, no SSO — public catalog only. It runs 24/7 on a free always-on VM, so it keeps watching with my laptop closed.
 
 ## Features
 
