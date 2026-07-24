@@ -20,11 +20,9 @@ links:
 
 <div style="display:flex;flex-direction:column;align-items:center;gap:1rem;margin:1.5rem 0;">
   <img src="/assets/img/projects/studeo-study.png" alt="Studeo study area with focus timer and music"
-       style="width:600px;max-width:100%;height:auto;border-radius:10px;
-              border:1px solid #d0d5dd;box-shadow:0 8px 24px rgba(0,0,0,.14);" />
+       style="width:600px;max-width:100%;height:auto;" />
   <img src="/assets/img/projects/studeo-dashboard.png" alt="Studeo dashboard"
-       style="width:600px;max-width:100%;height:auto;border-radius:10px;
-              border:1px solid #d0d5dd;box-shadow:0 8px 24px rgba(0,0,0,.14);" />
+       style="width:600px;max-width:100%;height:auto;" />
 </div>
 
 This idea originally came to me because I built an assignment tracker in Notion but I still felt like I did not have full control over how I wanted it formatted and it was honestly pretty time consuming adding assignments and all of that. So I started this app as a way to learn more about web apps, as that would be best to have it both on Mac and Windows since I use both operating systems. It was initially just an assignment tracker but turned into a whole "studio" of useful features that would help me in college.
