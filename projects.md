@@ -17,6 +17,7 @@ description: Things I've built, shipped, and maintain.
 .project-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; border-radius:10px 10px 0 0; }
 
 .card-lazee::before      { background:#22c55e; }
+.card-packseats::before  { background:#cc0000; }
 .card-studeo::before     { background:#f59e0b; }
 .card-daycounter::before { background:#6366f1; }
 .card-fluidsim::before   { background:#06b6d4; }
@@ -38,6 +39,7 @@ description: Things I've built, shipped, and maintain.
 .project-date   { font-size:.78rem; color:#444 !important; margin:-.4rem 0 0; display:flex; align-items:center; gap:.35rem; }
 .project-date::before { content:''; display:inline-block; width:6px; height:6px; border-radius:50%; flex-shrink:0; }
 .card-lazee      .project-date::before { background:#22c55e; }
+.card-packseats  .project-date::before { background:#cc0000; }
 .card-studeo     .project-date::before { background:#f59e0b; }
 .card-daycounter .project-date::before { background:#6366f1; }
 .card-fluidsim   .project-date::before { background:#06b6d4; }
@@ -128,6 +130,31 @@ body.light-mode .link-github { background:#1e293b; color:#fff !important; }
     <div class="project-links">
       <a class="project-link link-appstore" href="https://apps.apple.com/us/app/lazee/id6772380948" target="_blank">
         ↗ App Store
+      </a>
+    </div>
+  </div>
+
+  <div class="project-card card-packseats">
+    <div class="project-card-header">
+      <h3 class="project-title"><a class="project-title-link" href="{{ '/projects/packseats/' | relative_url }}">PackSeats</a></h3>
+      <span class="project-badge badge-live">Live</span>
+    </div>
+    <p class="project-date">Jul 2026 – Present</p>
+    <p class="project-desc">
+      Self-hosted watcher that pings my phone the second a seat opens in a full NC State
+      class, plus a conflict-aware schedule planner and an opt-in Telegram bot for friends.
+      Polls the public catalog only, runs 24/7 on a free VM at $0.
+    </p>
+    <div class="project-tags">
+      <span class="project-tag">Python</span>
+      <span class="project-tag">Flask</span>
+      <span class="project-tag">BeautifulSoup</span>
+      <span class="project-tag">Telegram Bot</span>
+      <span class="project-tag">systemd</span>
+    </div>
+    <div class="project-links">
+      <a class="project-link link-github" href="https://github.com/laizie/packseats" target="_blank">
+        ↗ GitHub
       </a>
     </div>
   </div>
