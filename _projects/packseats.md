@@ -17,6 +17,12 @@ links:
 
 **Jul 2026 – Present &nbsp;·&nbsp; Running**
 
+<p style="text-align:center;">
+  <img src="/assets/img/projects/packseats-planner.png" alt="PackSeats planner: a weekly schedule grid with a conflict-aware course search showing which sections fit, live seat counts, and watched sections"
+       style="width:900px;max-width:100%;height:auto;border-radius:10px;
+              border:1px solid #d0d5dd;box-shadow:0 8px 24px rgba(0,0,0,.14);" />
+</p>
+
 The idea came out of pure frustration. As a junior I was stuck trying to get into a 100-level health and fitness class that was completely full, camped on the course catalog hitting refresh and getting nowhere. So I threw together a rough prototype to watch the section for me, and within a couple of hours it caught an open seat and I was in.
 
 That got me curious, and once I started paying attention I realized just how *often* students drop classes. Seats open up constantly throughout registration; you just have to be looking at the exact second one does. What makes it worse is that some classes have a waitlist, so you can add yourself and wait your turn, but plenty of others, the health and fitness ones included, have no waitlist at all. Those are exactly where this helps: the only way in is to catch the moment a seat frees up before someone else refreshes into it first.
