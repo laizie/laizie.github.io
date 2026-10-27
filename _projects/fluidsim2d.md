@@ -1,11 +1,11 @@
 ---
 layout: page
 title: FluidSim2d
-caption: Real-time 2D FLIP fluid simulation for a round LED pocket watch — in development
+caption: Real-time 2D FLIP fluid simulation for a round pocket watch — in development
 description: >
   A real-time FLIP (Fluid-Implicit-Particle) fluid simulation built to run on a 2-inch round
-  LED pocket watch. Prototyped in the browser with JavaScript, with physics designed to port
-  cleanly to C++ on an ESP32 driving a circular addressable-LED matrix.
+  pocket watch. Prototyped in the browser with JavaScript, with the physics being ported to
+  C++ on a Waveshare RA4M1-Zero driving a round display on a custom PCB.
 date: 2026-06-20
 image:
   path: /assets/img/logo.png
@@ -23,7 +23,7 @@ links:
               border:1px solid #d0d5dd;box-shadow:0 8px 24px rgba(0,0,0,.14);" />
 </p>
 
-FluidSim2d is a real-time **FLIP fluid simulation** I'm building to run on a 2-inch round LED pocket watch. The water sloshes around the circular display based on how the watch is tilted. I'm prototyping the physics in the browser first, then porting it to C++ to run on an ESP32-C3 Super Mini driving a circular addressable-LED matrix.
+FluidSim2d is a real-time **FLIP fluid simulation** I'm building to run on a 2-inch round pocket watch. The water sloshes around the circular display based on how the watch is tilted. I'm prototyping the physics in the browser first, then porting it to C++ to run on a Waveshare RA4M1-Zero Mini driving a round display on a custom PCB.
 
 The idea comes from [mitxela's fluid pendant](https://mitxela.com/projects/fluid-pendant).
 
@@ -31,19 +31,23 @@ The idea comes from [mitxela's fluid pendant](https://mitxela.com/projects/fluid
 
 It's a [FLIP](https://en.wikipedia.org/wiki/Fluid_implicit_particle) (Fluid-Implicit-Particle) solver:
 
-- **P2G / G2P** - splat particle velocities onto a grid and read them back with the FLIP/PIC blend
-- **Forces** - gravity follows the direction the watch is tilted
-- **Advection** - move the particles and bounce them off the circular wall
-- **Push-apart + cohesion** - keep particles from overlapping, and let droplets ball up and break off for a surface-tension feel
+- **Forces + advection** - gravity follows the direction the watch is tilted; particles move and bounce off the circular wall
+- **Push-apart** - a light pass so particles don't stack on top of each other
+- **P2G** - splat particle velocities onto a staggered grid and mark each cell as fluid, air, or wall
+- **Pressure solve** - adjust the grid until every fluid cell has as much flow out as in, so the water can't be squashed. This is what makes it slosh and curl up the walls instead of piling up like sand
+- **G2P** - read velocities back to the particles with the FLIP/PIC blend
+
+A neighbour grid keeps the particle-pair checks cheap, and each frame runs in substeps so hard tilts stay stable.
 
 ## Tech
 
 - **JavaScript** - the solver and rendering harness, running live in the browser for fast iteration
 - **HTML5 Canvas** - visualizing the simulation at real pocket-watch size
 - **C++** - porting the physics to run on-device (in progress)
-- **ESP32** - target microcontroller (hardware FPU, dual-core)
-- **KiCad** - custom round PCB for the addressable-LED matrix
+- **Waveshare RA4M1-Zero Mini** - target microcontroller (Renesas RA4M1: 48 MHz Arm Cortex-M4 with FPU, 32 KB RAM)
+- **MPU6050** - accelerometer whose gravity vector drives the simulation
+- **KiCad** - custom round PCB
 
 ## Status
 
-Actively in development. The browser prototype handles gravity, FLIP transfers, incompressibility, cohesion, and tilt-driven gravity. The C++ has been completed, now I am waiting on parts to arrive and to get it on an actual screen prototype.
+Actively in development. The browser solver now has a full pressure solve, so the water sloshes and levels like a liquid instead of sliding as a lump. An earlier version of the solver is already ported to C++; next is porting the new one to the RA4M1, where 32 KB of RAM keeps the grid around 16×16. The custom PCB is designed in KiCad, and I'm waiting on the parts to arrive to build it.

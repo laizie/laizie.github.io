@@ -193,15 +193,15 @@ body.light-mode .link-github { background:#1e293b; color:#fff !important; }
     </div>
     <p class="project-date">Jun 2026 – Present</p>
     <p class="project-desc">
-      Real-time FLIP fluid simulation for a 2-inch round LED pocket watch. Prototyped in the
-      browser with JavaScript, with the physics being ported to C++ to run on an ESP32 driving
-      a circular addressable-LED matrix.
+      Real-time FLIP fluid simulation for a 2-inch round pocket watch. Prototyped in the
+      browser with JavaScript, with the physics being ported to C++ to run on a Waveshare
+      RA4M1-Zero driving a round display.
     </p>
     <div class="project-tags">
       <span class="project-tag">JavaScript</span>
       <span class="project-tag">HTML5 Canvas</span>
       <span class="project-tag">C++</span>
-      <span class="project-tag">ESP32</span>
+      <span class="project-tag">RA4M1</span>
       <span class="project-tag">KiCad</span>
     </div>
     <div class="project-links">
